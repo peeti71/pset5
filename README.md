@@ -1,5 +1,12 @@
 # Pset 5
 
+[![Build Status](https://travis-ci.com/csci-e-29/2020fa-pset-5-peeti71.svg?token=Uxx2AoGzYTUoHmL4C4Gp&branch=master)](https://travis-ci.com/csci-e-29/2020fa-pset-5-peeti71)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/08c143ed919ccd08d6be/maintainability)](https://codeclimate.com/repos/5fa8c1bcddf50f01b70043df/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/08c143ed919ccd08d6be/test_coverage)](https://codeclimate.com/repos/5fa8c1bcddf50f01b70043df/test_coverage)
+
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
