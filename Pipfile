@@ -1,0 +1,14 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest-cov = "*"
+pytest = "*"
+
+[packages]
+csci-utils = {editable = true, git = "https://github.com/csci-e-29/2020fa-csci-utils-peeti71"}
+
+[requires]
+python_version = "3.7"

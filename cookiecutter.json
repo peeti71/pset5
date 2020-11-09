@@ -1,0 +1,14 @@
+{
+    "full_name": "Peeti Sriwongsanguan",
+    "email": "https://github.com/peeti71",
+    "github_username": "csci-e-29",
+    "project_name": "test_project",
+    "repo_name": "2020fa-pset_5-peeti71",
+    "directory_name": "2020fa-pset_5-peeti71",
+    "project_slug": "pset_5",
+    "install_csci_utils": "yes",
+    "project_short_description": "A short description of the project",
+    "release_date": "2020-11-08",
+    "version": "0.1.0",
+    "_extensions": ["jinja2_time.TimeExtension"]
+}
