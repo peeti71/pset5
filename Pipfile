@@ -13,6 +13,7 @@ awscli = "*"
 [packages]
 csci-utils = {editable = true, git = "https://github.com/csci-e-29/2020fa-csci-utils-peeti71"}
 pandas = "*"
+dask = {extras = ["dataframe"], version = "*"}
 
 [requires]
 python_version = "3.7"
