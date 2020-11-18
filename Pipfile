@@ -9,6 +9,7 @@ pytest = "*"
 pytest-runner = "*"
 boto3 = "*"
 awscli = "*"
+moto = "*"
 
 [packages]
 csci-utils = {editable = true, git = "https://github.com/csci-e-29/2020fa-csci-utils-peeti71"}
