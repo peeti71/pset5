@@ -16,15 +16,19 @@ Why does this file exist, and why not put this in __main__?
 """
 import argparse
 from luigi import build
-from pset_5.tasks.yelp import ByDecade, ByStars
+from pset_5.tasks.yelp import ByDecade, ByStars, CleanedReviews
 
 parser = argparse.ArgumentParser(description="Yelp reviews.")
 parser.add_argument(
-    "-f", "--full", action="store_false", dest="full"
+    "-f", "--full", action="store_true", dest="full"
 )
-
+args = parser.parse_args()
 
 
 def main(args=None):
     args = parser.parse_args(args=args)
+#     # print(args.names)
     build([ByStars(subset=args.full), ByDecade(subset=args.full)], local_scheduler=True)
+
+    ByStars().print_results()
+    ByDecade().print_results()
