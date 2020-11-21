@@ -161,7 +161,8 @@ class TestLuigiDaskYelpReviewsTask(TestCase):
     def test_class_vars(self):
 
         t = YelpReviews()
-        self.assertEqual(t.S3_ROOT, 's3://cscie29-data/c287706a/pset_5/yelp_data/')
+        target = t.output()
+        self.assertTrue(isinstance(target, CSVTarget))
 
     def test_output_CSVTarget(self):
 
@@ -169,6 +170,8 @@ class TestLuigiDaskYelpReviewsTask(TestCase):
 
         result = t.output()
         self.assertEqual(result.__class__, CSVTarget)
+
+
 
 class TestCleanedReview(TestCase):
     def test_requires(self):
@@ -179,3 +182,24 @@ class TestCleanedReview(TestCase):
         t = CleanedReviews()
         result = t.output()
         self.assertEqual(result.__class__, ParquetTarget)
+
+class TestYelpCleanedReview(TestCase):
+    def test_run(self):
+        t = CleanedReviews()
+        t.run = MagicMock(name='run')
+        t.run()
+        t.run.assert_called()
+
+
+class TestByDecade(TestCase):
+    def test_requires(self):
+        t = ByDecade()
+        result = t.requires()
+        self.assertEqual(result['cleaned_reviews'].__class__, CleanedReviews)
+
+    def test_run(self):
+        t = ByDecade()
+        r = t.output()
+        self.assertEqual(r.__class__, ParquetTarget)
+
+

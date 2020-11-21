@@ -60,25 +60,6 @@ class CleanedReviews(Task):
         self.output().write_dask(out, compression='gzip')
 
 
-
-# class ByAggregate(Task):
-#     """
-#     Aggregate tasks
-#     """
-#     subset = BoolParameter(default=True)
-#     requires = Requires()
-#     output = TargetOutput(
-#         target_class=ParquetTarget,
-#         file_pattern=os.path.abspath("data/{task.__class__.__name__}-{task.subset}"),
-#         ext="",
-#     )
-#
-#     def run(self):
-#         raise NotImplementedError()
-#
-#     def print_results(self):
-#         print(self.output().read_dask().compute())
-
 class ByDecade(Task):
     """
     What is the average length of a review by the decade (eg 2000 <= year < 2010)?
