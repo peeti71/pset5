@@ -15,7 +15,7 @@ from luigi.contrib.s3 import S3Client
 # Import the created modules for testing.
 from csci_utils.luigi.dask.target import CSVTarget, ParquetTarget
 from csci_utils.luigi.task import TargetOutput, Requires, Requirement
-from pset_5 import cli
+# from pset_5 import cli
 
 from pset_5.tasks.yelp import YelpReviews, ByDecade, ByStars, CleanedReviews
 from csci_utils.hashing.hash_str import hash_str
