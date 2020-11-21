@@ -36,5 +36,5 @@ jobs:
       # Before running, get the data from s3 using the secret
       # credentials entered at https://travis-ci.com/csci-e-29/YOUR_PSET_REPO_NAME/settings
       # DO NOT commit these variables to git.
-      - make data
+
       - python3 -m pset_5
