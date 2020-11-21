@@ -1,14 +1,9 @@
 # Pset 5
 
-[![Build Status](https://travis-ci.com/csci-e-29/2020fa-pset-5-peeti71.svg?token=Uxx2AoGzYTUoHmL4C4Gp&branch=master)](https://travis-ci.com/csci-e-29/2020fa-pset-5-peeti71)
-
-[![Maintainability](https://api.codeclimate.com/v1/badges/08c143ed919ccd08d6be/maintainability)](https://codeclimate.com/repos/5fa8c1bcddf50f01b70043df/maintainability)
-
-[![Test Coverage](https://api.codeclimate.com/v1/badges/08c143ed919ccd08d6be/test_coverage)](https://codeclimate.com/repos/5fa8c1bcddf50f01b70043df/test_coverage)
 
 Fork Repo:
 
-[![Build Status](https://travis-ci.com/peeti71/2020fa-pset-5-peeti71.svg?token=Uxx2AoGzYTUoHmL4C4Gp&branch=main)](https://travis-ci.com/peeti71/2020fa-pset-5-peeti71)
+[![Build Status](https://travis-ci.com/peeti71/2020fa-pset-5-peeti71.svg?token=Uxx2AoGzYTUoHmL4C4Gp&branch=master)](https://travis-ci.com/peeti71/2020fa-pset-5-peeti71)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/08c143ed919ccd08d6be/maintainability)](https://codeclimate.com/repos/5fa8c1bcddf50f01b70043df/maintainability)
 
