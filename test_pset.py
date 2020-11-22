@@ -9,13 +9,15 @@ import boto3
 from moto import mock_s3
 
 # Import luigi for Testing Tasks
-from luigi import Task, build, BoolParameter
+from luigi import Task, build, BoolParameter, LuigiStatusCode
 from luigi.contrib.s3 import S3Client
+from pset_5.cli import main
+
 
 # Import the created modules for testing.
 from csci_utils.luigi.dask.target import CSVTarget, ParquetTarget
 from csci_utils.luigi.task import TargetOutput, Requires, Requirement
-# from pset_5 import cli
+
 
 from pset_5.tasks.yelp import YelpReviews, ByDecade, ByStars, CleanedReviews
 from csci_utils.hashing.hash_str import hash_str
@@ -29,8 +31,8 @@ class HashTests(TestCase):
     def test_basic(self):
         self.assertEqual(hash_str("world!", salt="hello, ").hex()[:6], "68e656")
 
-AWS_ACCESS_KEY = "XXXXXXXXXXXXXXXXXXXX"
-AWS_SECRET_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+AWS_ACCESS_KEY = "xxxxxxxxxxxxxxxxxxxx"
+AWS_SECRET_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 
 def create_bucket(bucket, dir, temp_file_path, download_path):
@@ -202,4 +204,45 @@ class TestByDecade(TestCase):
         r = t.output()
         self.assertEqual(r.__class__, ParquetTarget)
 
+class MockByStars(ByStars):
+    subset = BoolParameter(default=True)
+    requires = Requires()
+    output = TargetOutput(
+            target_class=ParquetTarget,
+            file_pattern=os.path.abspath("data/ByStars"),
+            ext="",
+        )
+# class TestByStars(TestCase):
+#
+#     tempFilePath = create_temp_files()
+#     create_bucket("peeti-cscie-29", "pset_5/yelp_data", tempFilePath, "test_file.csv")
+#     def test_run(self):
+#         with TemporaryDirectory() as tmp:
+#             target = MockByStars(tmp)
+#             df = verify_dataframe_dimensions(self, target, 2, 1)
+#             self.assertEqual(df['length_reviews'].values[0], 11)
+#             self.assertEqual(df['length_reviews'].values[1], 26)
 
+class TestMain(TestCase):
+    def Test_main(self):
+        t = main.__class__.print_results()
+        c = t.index
+        self.assertEqual(c, 'stars')
+#
+#     def Test_main_Decade(self):
+#         t = ByDecade().print_results()
+#         c = t.index()
+#         self.assertEqual(c, 'date')
+
+
+    def test_by_decade(self):
+        with TemporaryDirectory() as tmp:
+            os.makedirs(os.path.join(tmp, "data"))
+            self.assertEqual(build([ByDecade(os.path.join(tmp, 'data/ByDecade'))], local_scheduler=True,
+                                   detailed_summary=True).status, LuigiStatusCode.SUCCESS)
+
+    def test_by_stars(self):
+        with TemporaryDirectory() as tmp:
+            os.makedirs(os.path.join(tmp, "data"))
+            self.assertEqual(build([ByStars(os.path.join(tmp, 'data/ByStars'))], local_scheduler=True,
+                                   detailed_summary=True).status, LuigiStatusCode.SUCCESS)
