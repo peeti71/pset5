@@ -235,19 +235,7 @@ class TestMain(TestCase):
 #         self.assertEqual(c, 'date')
 
 
-class Test_ByDecade(TestCase):
-    def test_by_decade(self):
-        with TemporaryDirectory() as tmp:
-            os.makedirs(os.path.join(tmp, "data"))
-            self.assertEqual(build([ByDecade(os.path.join(tmp, 'data/ByDecade'))], local_scheduler=True,
-                                   detailed_summary=True).status, LuigiStatusCode.SUCCESS)
 
-class TestByStars(TestCase):
-    def test_by_stars(self):
-        with TemporaryDirectory() as tmp:
-            os.makedirs(os.path.join(tmp, "data"))
-            self.assertEqual(build([ByStars(os.path.join(tmp, 'data/ByStars'))], local_scheduler=True,
-                                   detailed_summary=True).status, LuigiStatusCode.SUCCESS)
 
 if __name__ == "__main__":
     main()
