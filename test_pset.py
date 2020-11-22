@@ -1,7 +1,7 @@
 """Module for testing Luigi/ Dask tasks"""
 
 # Python Builtin's need for tests
-from unittest import TestCase
+from unittest import TestCase, main
 from unittest.mock import MagicMock
 from tempfile import TemporaryDirectory, NamedTemporaryFile
 import os
@@ -248,3 +248,6 @@ class TestByStars(TestCase):
             os.makedirs(os.path.join(tmp, "data"))
             self.assertEqual(build([ByStars(os.path.join(tmp, 'data/ByStars'))], local_scheduler=True,
                                    detailed_summary=True).status, LuigiStatusCode.SUCCESS)
+
+if __name__ == "__main__":
+    main()
