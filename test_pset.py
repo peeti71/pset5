@@ -11,7 +11,7 @@ from moto import mock_s3
 # Import luigi for Testing Tasks
 from luigi import Task, build, BoolParameter, LuigiStatusCode
 from luigi.contrib.s3 import S3Client
-from pset_5.cli import main
+
 
 
 # Import the created modules for testing.
