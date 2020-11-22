@@ -64,6 +64,8 @@ class ByDecade(Task):
     """
     What is the average length of a review by the decade (eg 2000 <= year < 2010)?
     """
+
+    #create an output target folder (data/ByDecade)
     subset = BoolParameter(default=True)
     requires = Requires()
     output = TargetOutput(
@@ -101,6 +103,9 @@ class ByStars(Task):
     """
     What is the average length of a review by the number of stars?
     """
+
+    # create a file target (data/ByStars)
+
     subset = BoolParameter(default=True)
     requires = Requires()
     output = TargetOutput(
@@ -113,16 +118,16 @@ class ByStars(Task):
     def run(self):
 
         # repeat the class above by creating a dataframe for stars and lenght_review
-        dsk = self.input()["cleaned_reviews"].read_dask(columns=['length_reviews', 'stars'])
+        ddf = self.input()["cleaned_reviews"].read_dask(columns=['length_reviews', 'stars'])
 
         if self.subset:
-            dsk = dsk.get_partition(0)
+            ddf = ddf.get_partition(0)
 
         # take an average on stars and convert lenght_review series to dataframe
         # convert lenght_reviews to integer
 
         out = (
-            dsk.groupby('stars')['length_reviews']
+            ddf.groupby('stars')['length_reviews']
             .mean()
             .round()
             .to_frame()

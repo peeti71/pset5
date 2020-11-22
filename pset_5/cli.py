@@ -16,7 +16,7 @@ Why does this file exist, and why not put this in __main__?
 """
 import argparse
 from luigi import build
-from pset_5.tasks.yelp import ByDecade, ByStars, CleanedReviews
+from pset_5.tasks.yelp import ByDecade, ByStars
 
 parser = argparse.ArgumentParser(description="Yelp reviews.")
 parser.add_argument(
