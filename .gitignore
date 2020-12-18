@@ -74,6 +74,7 @@ docs/_build
 src/*/_version.py
 
 data
+data/
 
 .idea
 
