@@ -124,14 +124,14 @@ def verify_dataframe(self, tmp, rows, cols):
     target = get_mock_clean_reviews(tmp)
     verify_dataframe_dimensions(self, target, rows, cols)
 
-@mock_s3
-class TestYelpReviews(TestCase):
-
-    def test_yelp_reviews(self):
-
-        t1 = YelpReviews()
-        target = t1.output()
-        self.assertTrue(isinstance(target, CSVTarget))
+# @mock_s3
+# class TestYelpReviews(TestCase):
+#
+#     def test_yelp_reviews(self):
+#
+#         t1 = YelpReviews()
+#         target = t1.output()
+#         self.assertTrue(isinstance(target, CSVTarget))
 
 @mock_s3
 class TestCleanedReviews(TestCase):
